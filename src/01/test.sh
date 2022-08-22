@@ -7,10 +7,7 @@
 # yonnarge@student.21-school.ru
 #
 
-arg=$1
-
-if [ $# -eq 1 ]
-  then echo $1
-else
-  echo "INPUT ERROR, please run script with one parameter"
-fi
+./main.sh
+./main.sh 1
+./main.sh a b c
+./main.sh a 
