@@ -10,4 +10,10 @@
 ./main.sh
 ./main.sh 1
 ./main.sh a b c
-./main.sh a 
+./main.sh 1.1
+./main.sh -42
+./main.sh 99.9
+./main.sh 0.31415
+./main.sh "21"
+./main.sh "twenty one"
+./main.sh a

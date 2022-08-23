@@ -8,9 +8,12 @@
 #
 
 arg=$1
+reg="^[+-]?[[:digit:]]*(.[[:digit:]])*$"
 
-if [ $# -eq 1 ]
-  then echo $1
+if [ $# -ne 1 ] ; then
+  echo "this script print one text parameter"
+elif [[ $arg =~ $reg ]] ; then
+  echo "please enter text parameter"
 else
-  echo "INPUT ERROR, please run script with one parameter"
+  echo $arg
 fi
