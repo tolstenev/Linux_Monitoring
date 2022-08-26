@@ -24,4 +24,6 @@ function print() {
   echo "SPACE_ROOT = $SPACE_ROOT"
   echo "SPACE_ROOT_USED = $SPACE_ROOT_USED"
   echo "SPACE_ROOT_FREE = $SPACE_ROOT_FREE"
+
+  return 1
 }

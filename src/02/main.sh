@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 #
 # Copyright (с) 2022 Student of School 21:
 # Yonn Argelia
@@ -11,10 +12,10 @@
 . ./question.sh
 
 HOSTNAME=$(hostname)
-TIMEZONE=$(cat /etc/timezone) UTC $(date +%:::z)
+TIMEZONE="$(cat /etc/timezone) UTC $(date +%:::z)"
 USER=$USER
-OS=$(cat /etc/issue)
-DATE=$(date | awk '{print $3,$2,$6,$4}')
+OS=$(lsb_release -d | awk '{ for (i = 2; i <= NF; i++) {printf "%s ",$i} {printf "\n"}}')
+DATE=$(date "+%d %B %Y %H:%M:%S")
 UPTIME=$(uptime | awk '{print $3}' | tr -s ',' ' ')
 UPTIME_SEC=$(cat /proc/uptime | awk '{print $1}')
 IP=$(ifconfig | awk '{if ($0 ~ /inet/) print $2}' | awk 'NR == 1')
@@ -34,4 +35,7 @@ if [[ $? -eq 1 ]] ; then
   current_date=$(date "+%d_%m_%y_%H_%M_%S")
   filename="$current_date.status"
   print >> $filename
+  if [[ $? -eq 1 ]] ; then
+    echo "Saved to $filename"
+  fi
 fi

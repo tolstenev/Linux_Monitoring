@@ -12,7 +12,7 @@ function question() {
   local result=0
 
   echo
-  read -p "Save this data to a file?  [Y/N] " answer
+  read -p "Do you want to save this data to a file?  [Y/N] " answer
 
   if [ $answer = "Y" ] || [ $answer = "y" ] ; then
     result=1
