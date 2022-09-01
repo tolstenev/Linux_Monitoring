@@ -10,29 +10,35 @@
 . ./colors.conf
 . ./print.sh
 
-color_codes="[1-6]{1}"
-errmsg="Please run script with parameters from 1 to 6"
+errmsg="Please set color code parameters in colors.conf from 1 to 6"
 
-
-if ! [[ $column1_background =~ $color_codes ]] ; then
-  column1_background=6
-else
-  if ! [[ $column1_font_color =~ $color_codes ]] ; then
-    column1_font_color=1
-  else
-    if ! [[ $column2_background =~ $color_codes ]] ; then
-      column2_background=6
+# Возвращает 1, если аргумент входит в диапазон от 1 до 6
+function isIncorrectCode() {
+    if [[ $1 -lt 1 ]] && [[ $1 -gt 6 ]] || ! [[ -n $1 ]] ; then
+      return 0
     else
-      if ! [[ $column2_font_color =~ $color_codes ]] ; then
-        column2_font_color=1
-      fi
+      return 1
     fi
-  fi
-fi
+}
+
+# Четыре условия, которые в случае несоответствия заданных в colors.conf кодов
+# заменяют их кодами по умолчанию (черный фон, белый шрифт)
+
+if isIncorrectCode $column1_background ; then
+  column1_background=6 ; fi
+
+if isIncorrectCode $column1_font_color ; then
+  column1_font_color=1 ; fi
+
+if isIncorrectCode $column2_background ; then
+  column2_background=6 ; fi
+
+if isIncorrectCode $column2_font_color ; then
+  column2_font_color=1 ; fi
 
 if [[ $column1_background == $column1_font_color ]] ||
    [[ $column2_background == $column2_font_color ]] ; then
-  echo "First parameter can't be equal second and third can't be equal fourth, please edit .conf file"
+  echo "First parameter can't be equal second and third can't be equal fourth, please edit colors.conf"
 else
   HOSTNAME=$(hostname)
   TIMEZONE="$(cat /etc/timezone) UTC $(date +%:::z)"
@@ -63,5 +69,7 @@ else
   default_color="\033[0m"
 
   print
+
+
 
 fi
