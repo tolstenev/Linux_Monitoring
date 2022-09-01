@@ -17,6 +17,16 @@ function set_code_color() {
     4) code=4 ;;
     5) code=5 ;;
     6) code=0 ;;
+    7) ;;
+    8) ;;
+    9) ;;
+    10) ;;
+    11) code=7 ;;
+    12) code=1 ;;
+    13) code=2 ;;
+    14) code=4 ;;
+    15) code=5 ;;
+    16) code=0 ;;
   esac
 
   return $code

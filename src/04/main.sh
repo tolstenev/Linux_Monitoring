@@ -13,7 +13,7 @@
 errmsg="Please set color code parameters in colors.conf from 1 to 6"
 
 # Возвращает 1, если аргумент входит в диапазон от 1 до 6
-function isIncorrectCode() {
+function is_incorrect_code() {
     if [[ $1 -lt 1 ]] && [[ $1 -gt 6 ]] || ! [[ -n $1 ]] ; then
       return 0
     else
@@ -24,17 +24,17 @@ function isIncorrectCode() {
 # Четыре условия, которые в случае несоответствия заданных в colors.conf кодов
 # заменяют их кодами по умолчанию (черный фон, белый шрифт)
 
-if isIncorrectCode $column1_background ; then
-  column1_background=6 ; fi
+if is_incorrect_code $column1_background ; then
+  column1_background=16 ; fi
 
-if isIncorrectCode $column1_font_color ; then
-  column1_font_color=1 ; fi
+if is_incorrect_code $column1_font_color ; then
+  column1_font_color=11 ; fi
 
-if isIncorrectCode $column2_background ; then
-  column2_background=6 ; fi
+if is_incorrect_code $column2_background ; then
+  column2_background=16 ; fi
 
-if isIncorrectCode $column2_font_color ; then
-  column2_font_color=1 ; fi
+if is_incorrect_code $column2_font_color ; then
+  column2_font_color=11 ; fi
 
 if [[ $column1_background == $column1_font_color ]] ||
    [[ $column2_background == $column2_font_color ]] ; then
@@ -70,6 +70,35 @@ else
 
   print
 
+function print_code_info() {
+    if [[ $1 -le 6 ]]  ; then
+      case "$1" in
+        1) echo "$1 (white)" ;;
+        2) echo "$1 (red)" ;;
+        3) echo "$1 (green)" ;;
+        4) echo "$1 (blue)" ;;
+        5) echo "$1 (purple)" ;;
+        6) echo "$1 (black)" ;;
+      esac
+    else
+      if [[ $1 -ge 11 ]] ; then
+        $1=(($1 - 10))
+        case "$1" in
+          1) echo "default (white)" ;;
+          2) echo "default (red)" ;;
+          3) echo "default (green)" ;;
+          4) echo "default (blue)" ;;
+          5) echo "default (purple)" ;;
+          6) echo "default (black)" ;;
+        esac
+      fi
+    fi
+}
 
+  echo
+  echo "Column 1 background = $(print_code_info $column1_background)"
+  echo "Column 1 font color = $(print_code_info $column1_font_color)"
+  echo "Column 2 background = $(print_code_info $column2_background)"
+  echo "Column 2 font color = $(print_code_info $column2_font_color)"
 
 fi
