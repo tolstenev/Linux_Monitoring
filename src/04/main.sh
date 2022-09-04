@@ -36,6 +36,7 @@ if is_incorrect_code $column2_background ; then
 if is_incorrect_code $column2_font_color ; then
   column2_font_color=11 ; fi
 
+# Проверка на одинаковые цвета шрифта и фона
 if [[ $column1_background == $column1_font_color ]] ||
    [[ $column2_background == $column2_font_color ]] ; then
   echo "First parameter can't be equal second and third can't be equal fourth, please edit colors.conf"
@@ -70,31 +71,6 @@ else
 
   print
 
-function print_code_info() {
-    if [[ $1 -le 6 ]]  ; then
-      case "$1" in
-        1) echo "$1 (white)" ;;
-        2) echo "$1 (red)" ;;
-        3) echo "$1 (green)" ;;
-        4) echo "$1 (blue)" ;;
-        5) echo "$1 (purple)" ;;
-        6) echo "$1 (black)" ;;
-      esac
-    else
-      if [[ $1 -ge 11 ]] ; then
-        $1=(($1 - 10))
-        case "$1" in
-          1) echo "default (white)" ;;
-          2) echo "default (red)" ;;
-          3) echo "default (green)" ;;
-          4) echo "default (blue)" ;;
-          5) echo "default (purple)" ;;
-          6) echo "default (black)" ;;
-        esac
-      fi
-    fi
-}
-
   echo
   echo "Column 1 background = $(print_code_info $column1_background)"
   echo "Column 1 font color = $(print_code_info $column1_font_color)"
@@ -102,3 +78,4 @@ function print_code_info() {
   echo "Column 2 font color = $(print_code_info $column2_font_color)"
 
 fi
+

@@ -52,3 +52,28 @@ function print() {
 
   return 1
 }
+
+function print_code_info() {
+    if [[ $1 -le 6 ]]  ; then
+      case "$1" in
+        1) echo "$1 (white)" ;;
+        2) echo "$1 (red)" ;;
+        3) echo "$1 (green)" ;;
+        4) echo "$1 (blue)" ;;
+        5) echo "$1 (purple)" ;;
+        6) echo "$1 (black)" ;;
+      esac
+    else
+      if [[ $1 -ge 11 ]] ; then
+        i=$(( $1 - 10 ))
+        case "$i" in
+          1) echo "default (white)" ;;
+          2) echo "default (red)" ;;
+          3) echo "default (green)" ;;
+          4) echo "default (blue)" ;;
+          5) echo "default (purple)" ;;
+          6) echo "default (black)" ;;
+        esac
+      fi
+    fi
+}
