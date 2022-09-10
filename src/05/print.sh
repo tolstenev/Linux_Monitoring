@@ -11,8 +11,14 @@ function print_top_five_folders {
 function print_count_files {
   echo "Total number of files = $(ls -laR $1 | grep ^- | wc -l)"
 }
-function print_conf_files {
-  echo " "
+function print_number_of_files {
+  echo "Number of:"
+  echo "Configuration files (with the .conf extension) = $(find $1 -type f -name "*.conf" | wc -l | awk '{print $1}')"
+  echo "Text files = $(find $1 -type f -name "*.txt" | wc -l | awk '{print $1}')"
+  echo "Executable files = $(find $1 -type f -executable | wc -l | awk '{print $1}')"
+  echo "Log files (with the extension .log) = $(find $1 -type f -name "*.log" | wc -l | awk '{print $1}')"
+  echo "Archive files = $(find $1 -type f -name "*.zip" -o -name "*.7z" -o -name "*.rar" -o -name "*.tar" | wc -l | awk '{print $1}')"
+  echo "Symbolic links = $(find $1 -type l | wc -l | awk '{print $1}')"
 }
 function print_top_ten_files {
   echo " "

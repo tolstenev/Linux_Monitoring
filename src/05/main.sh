@@ -15,6 +15,7 @@ else
       print_count_folders $1
       print_top_five_folders $1
       print_count_files $1
+      print_number_of_files $1
       echo "Script execution time (in seconds) = $(($(date +%s)-$start_time))"
     fi
   fi
