@@ -1,4 +1,12 @@
 #!/bin/bash
+
+#
+# Copyright (с) 2022 Student of School 21:
+# Yonn Argelia
+#
+# yonnarge@student.21-school.ru
+#
+
 . ./print.sh
 
 start_time=`date +%s`
@@ -17,6 +25,7 @@ else
       print_count_files $1
       print_number_of_files $1
       print_top_ten_files $1
+      print_top_ten_exec_files $1
       echo "Script execution time (in seconds) = $(($(date +%s)-$start_time))"
     fi
   fi
