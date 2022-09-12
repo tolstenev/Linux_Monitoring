@@ -49,9 +49,10 @@ else
   DATE=$(date "+%d %B %Y %H:%M:%S")
   UPTIME=$(uptime | awk '{print $3}' | tr -s ',' ' ')
   UPTIME_SEC=$(cat /proc/uptime | awk '{print $1}')
-  IP=$(ifconfig | awk '{if ($0 ~ /inet/) print $2}' | awk 'NR == 1')
-  NETMASK=$(ifconfig | awk '{if ($0 ~ /netmask/) print $4}' | awk 'NR == 1')
-  GATEWAY=$(route -n | awk '$1 ~ /0.0.0.0/' | awk '{print $2}')
+  IP=$(ip -4 a | awk '{if ($0 ~ /inet/) {if ($2 !~ /^127/) {print $2; exit;}}}')
+  postfix=$(ip -4 a | awk '{if ($0 ~ /inet/) {if ($2 !~ /^127/) {sub(/[0-9.]*\//, "", $2); print $2; exit}}}')
+  NETMASK=${mask[$postfix]}
+  GATEWAY=$(ip route | awk '{if ($1 ~ /default/) {print $3; exit}}')
   RAM_TOTAL=$(free | awk '/Mem:/ {printf "%.3f GB\n", $2/1024/1024}')
   RAM_USED=$(free | awk '/Mem:/ {printf "%.3f GB\n", $3/1024/1024}')
   RAM_FREE=$(free | awk '/Mem:/ {printf "%.3f GB\n", $4/1024/1024}')
