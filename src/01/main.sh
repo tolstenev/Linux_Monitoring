@@ -11,9 +11,9 @@ arg=$1
 reg="^[+-]?[[:digit:]]*(.[[:digit:]])*$"
 
 if [ $# -ne 1 ] ; then
-  echo "this script print one text parameter"
+  echo "This script print one text parameter, please try again with parameter"
 elif [[ $arg =~ $reg ]] ; then
-  echo "please enter text parameter"
+  echo "Please enter text parameter and try again"
 else
   echo $arg
 fi
