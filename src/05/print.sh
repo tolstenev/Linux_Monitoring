@@ -21,7 +21,7 @@ function print_number_of_files {
   echo "Symbolic links = $(find $1 -type l | wc -l | awk '{print $1}')"
 }
 function print_top_ten_files {
-  echo " "
+  find $1 -type f -exec du -h {} + | sort -hr | head | awk '{ext=$NF; if (match(ext,/\/\./)) printf "%d - %s, %s\n", NR, $2, $1; else {sub(".*\\.", "", ext); printf "%d - %s, %s, %s\n", NR, $2, $1, ext}}'
 }
 function print_top_ten_exec_files {
   echo " "
