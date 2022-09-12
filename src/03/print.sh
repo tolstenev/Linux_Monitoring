@@ -23,22 +23,22 @@ function set_color_code() {
 }
 
 function print() {
-  echo "${name_bg_color}${name_tx_color}HOSTNAME${default_color} = ${value_bg_color}${value_tx_color}$HOSTNAME${default_color}"
-  echo "${name_bg_color}${name_tx_color}TIMEZONE${default_color} = ${value_bg_color}${value_tx_color}$TIMEZONE${default_color}"
-  echo "${name_bg_color}${name_tx_color}USER${default_color} = ${value_bg_color}${value_tx_color}$USER${default_color}"
-  echo "${name_bg_color}${name_tx_color}OS${default_color} = ${value_bg_color}${value_tx_color}$OS${default_color}"
-  echo "${name_bg_color}${name_tx_color}DATE${default_color} = ${value_bg_color}${value_tx_color}$DATE${default_color}"
-  echo "${name_bg_color}${name_tx_color}UPTIME${default_color} = ${value_bg_color}${value_tx_color}$UPTIME${default_color}"
-  echo "${name_bg_color}${name_tx_color}UPTIME_SEC${default_color} = ${value_bg_color}${value_tx_color}$UPTIME_SEC${default_color}"
-  echo "${name_bg_color}${name_tx_color}IP${default_color} = ${value_bg_color}${value_tx_color}$IP${default_color}"
-  echo "${name_bg_color}${name_tx_color}NETMASK${default_color} = ${value_bg_color}${value_tx_color}$NETMASK${default_color}"
-  echo "${name_bg_color}${name_tx_color}GATEWAY${default_color} = ${value_bg_color}${value_tx_color}$GATEWAY${default_color}"
-  echo "${name_bg_color}${name_tx_color}RAM_TOTAL${default_color} = ${value_bg_color}${value_tx_color}$RAM_TOTAL${default_color}"
-  echo "${name_bg_color}${name_tx_color}RAM_USED${default_color} = ${value_bg_color}${value_tx_color}$RAM_USED${default_color}"
-  echo "${name_bg_color}${name_tx_color}RAM_FREE${default_color} = ${value_bg_color}${value_tx_color}$RAM_FREE${default_color}"
-  echo "${name_bg_color}${name_tx_color}SPACE_ROOT${default_color} = ${value_bg_color}${value_tx_color}$SPACE_ROOT${default_color}"
-  echo "${name_bg_color}${name_tx_color}SPACE_ROOT_USED${default_color} = ${value_bg_color}${value_tx_color}$SPACE_ROOT_USED${default_color}"
-  echo "${name_bg_color}${name_tx_color}SPACE_ROOT_FREE${default_color} = ${value_bg_color}${value_tx_color}$SPACE_ROOT_FREE${default_color}"
+  echo -e "${name_bg_color}${name_tx_color}HOSTNAME${default_color} = ${value_bg_color}${value_tx_color}$HOSTNAME${default_color}"
+  echo -e "${name_bg_color}${name_tx_color}TIMEZONE${default_color} = ${value_bg_color}${value_tx_color}$TIMEZONE${default_color}"
+  echo -e "${name_bg_color}${name_tx_color}USER${default_color} = ${value_bg_color}${value_tx_color}$USER${default_color}"
+  echo -e "${name_bg_color}${name_tx_color}OS${default_color} = ${value_bg_color}${value_tx_color}$OS${default_color}"
+  echo -e "${name_bg_color}${name_tx_color}DATE${default_color} = ${value_bg_color}${value_tx_color}$DATE${default_color}"
+  echo -e "${name_bg_color}${name_tx_color}UPTIME${default_color} = ${value_bg_color}${value_tx_color}$UPTIME${default_color}"
+  echo -e "${name_bg_color}${name_tx_color}UPTIME_SEC${default_color} = ${value_bg_color}${value_tx_color}$UPTIME_SEC${default_color}"
+  echo -e "${name_bg_color}${name_tx_color}IP${default_color} = ${value_bg_color}${value_tx_color}$IP${default_color}"
+  echo -e "${name_bg_color}${name_tx_color}NETMASK${default_color} = ${value_bg_color}${value_tx_color}$NETMASK${default_color}"
+  echo -e "${name_bg_color}${name_tx_color}GATEWAY${default_color} = ${value_bg_color}${value_tx_color}$GATEWAY${default_color}"
+  echo -e "${name_bg_color}${name_tx_color}RAM_TOTAL${default_color} = ${value_bg_color}${value_tx_color}$RAM_TOTAL${default_color}"
+  echo -e "${name_bg_color}${name_tx_color}RAM_USED${default_color} = ${value_bg_color}${value_tx_color}$RAM_USED${default_color}"
+  echo -e "${name_bg_color}${name_tx_color}RAM_FREE${default_color} = ${value_bg_color}${value_tx_color}$RAM_FREE${default_color}"
+  echo -e "${name_bg_color}${name_tx_color}SPACE_ROOT${default_color} = ${value_bg_color}${value_tx_color}$SPACE_ROOT${default_color}"
+  echo -e "${name_bg_color}${name_tx_color}SPACE_ROOT_USED${default_color} = ${value_bg_color}${value_tx_color}$SPACE_ROOT_USED${default_color}"
+  echo -e "${name_bg_color}${name_tx_color}SPACE_ROOT_FREE${default_color} = ${value_bg_color}${value_tx_color}$SPACE_ROOT_FREE${default_color}"
 
   return 1
 }
