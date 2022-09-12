@@ -60,13 +60,13 @@ else
   SPACE_ROOT_USED=$(df / | awk '/\// {printf "%.2f MB\n", $3/1024}')
   SPACE_ROOT_FREE=$(df / | awk '/\// {printf "%.2f MB\n", $4/1024}')
 
-  set_code_color $column1_background
+  set_color_code $column1_background
   name_bg_color="\033[4$?m"
-  set_code_color $column1_font_color
+  set_color_code $column1_font_color
   name_tx_color="\033[3$?m"
-  set_code_color $column2_background
+  set_color_code $column2_background
   value_bg_color="\033[4$?m"
-  set_code_color $column2_font_color
+  set_color_code $column2_font_color
   value_tx_color="\033[3$?m"
 
   default_color="\033[0m"

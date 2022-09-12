@@ -41,13 +41,13 @@ else
       SPACE_ROOT_USED=$(df / | awk '/\// {printf "%.2f MB\n", $3/1024}')
       SPACE_ROOT_FREE=$(df / | awk '/\// {printf "%.2f MB\n", $4/1024}')
 
-      set_code_color $1
+      set_color_code $1
       name_bg_color="\033[4$?m"
-      set_code_color $2
+      set_color_code $2
       name_tx_color="\033[3$?m"
-      set_code_color $3
+      set_color_code $3
       value_bg_color="\033[4$?m"
-      set_code_color $4
+      set_color_code $4
       value_tx_color="\033[3$?m"
 
       default_color="\033[0m"
