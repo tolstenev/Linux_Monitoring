@@ -7,7 +7,7 @@
 # yonnarge@student.21-school.ru
 #
 
-function set_code_color() {
+function set_color_code() {
   code=0
 
   case "$1" in
