@@ -14,10 +14,12 @@ errmsg="Please set color code parameters in colors.conf from 1 to 6"
 
 # Возвращает 1, если аргумент входит в диапазон цветовых кодов от 1 до 6
 function is_incorrect_code() {
-    if [[ $1 -lt 1 ]] && [[ $1 -gt 6 ]] || ! [[ -n $1 ]] ; then
+    if ! [[ -n $1 ]] ; then
       return 0
-    else
+    elif [[ $1 -ge 1 ]] && [[ $1 -le 6 ]] ; then
       return 1
+    else
+      return 0
     fi
 }
 
